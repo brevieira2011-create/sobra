@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ajude o Sobra a virar aplicativo e a ajudar mais pessoas a controlar o dinheiro. Apoie com qualquer valor por Pix.">
+<title>Apoie o Sobra</title>
+<style>
+/* Layout: uma coluna de celular. A palavra "Motivado" abre a página, a chave Pix fica logo abaixo. */
+:root {
+  color-scheme: light;
+  --bg: #F2F5F3;
+  --surface: #FFFFFF;
+  --surface2: #E6EDE9;
+  --fg: #13241D;
+  --muted: #4B6057;
+  --line: #D3DED8;
+  --primary: #0B6B4D;
+  --on-primary: #FFFFFF;
+  --good-bg: #DCF0E6;
+  --display: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1814;
+    --surface: #15251F;
+    --surface2: #1C3029;
+    --fg: #E6F0EB;
+    --muted: #9DB4A9;
+    --line: #2A4137;
+    --primary: #4FD1A0;
+    --on-primary: #06231A;
+    --good-bg: #12372B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1814;
+  --surface: #15251F;
+  --surface2: #1C3029;
+  --fg: #E6F0EB;
+  --muted: #9DB4A9;
+  --line: #2A4137;
+  --primary: #4FD1A0;
+  --on-primary: #06231A;
+  --good-bg: #12372B;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.55 var(--body);
+  padding-inline: 16px;
+  padding-block: 0;
+}
+.page {
+  max-width: 560px;
+  margin-inline: auto;
+  padding-block: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.brand {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  text-decoration: none;
+}
+.hero { display: flex; flex-direction: column; gap: 8px; }
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.big {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3.25rem, 18vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  overflow-wrap: anywhere;
+}
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.lead { margin: 0; color: var(--muted); max-width: 60ch; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.key-label { margin: 0; font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+.key {
+  margin: 0;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 12px;
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  user-select: all;
+  -webkit-user-select: all;
+}
+.btn {
+  font: inherit;
+  font-weight: 700;
+  border: 0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 48px;
+  background: var(--primary);
+  color: var(--on-primary);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+.status { margin: 0; min-height: 1.5em; font-weight: 600; color: var(--primary); }
+
+ol, ul { margin: 0; padding-left: 1.25rem; display: grid; gap: 8px; }
+.note { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.thanks {
+  background: var(--good-bg);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.thanks p { margin: 0; }
+.thanks strong { font-family: var(--display); font-size: 1.125rem; }
+footer { font-size: 0.875rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="page">
+  <a class="brand" href="https://brevieira2011-create.github.io/sobra/">Sobra</a>
+
+  <section class="hero">
+    <p class="eyebrow">Apoie o Sobra</p>
+    <p class="big">Motivado</p>
+    <h1>Ajude o Sobra a virar aplicativo e a ajudar mais pessoas.</h1>
+    <p class="lead">O Sobra é um app grátis que mostra quanto você pode gastar hoje e ajuda a organizar contas e compras. Com a sua ajuda, ele chega à Play Store e alcança quem mais precisa.</p>
+  </section>
+
+  <section class="card" aria-labelledby="pix-title">
+    <h2 id="pix-title">Apoie por Pix, com o valor que puder</h2>
+    <p class="key-label">Chave Pix aleatória</p>
+    <p class="key" id="pixkey">8fdeedcd-e07c-4c62-b3ee-28dd1262a461</p>
+    <button class="btn" type="button" id="copy">Copiar chave Pix</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <h2>Como fazer</h2>
+    <ol>
+      <li>Toque em <strong>Copiar chave Pix</strong>.</li>
+      <li>Abra o app do seu banco e vá em <strong>Pix</strong>.</li>
+      <li>Escolha <strong>Pagar</strong> e depois <strong>Chave Pix</strong> (ou chave aleatória), e cole a chave.</li>
+      <li>Digite o valor que quiser e confirme o nome de quem recebe antes de pagar.</li>
+    </ol>
+    <p class="note">É uma doação voluntária, não uma compra. O Sobra continua grátis para todo mundo.</p>
+  </section>
+
+  <section class="card">
+    <h2>Para onde vai a sua ajuda</h2>
+    <ul>
+      <li>A taxa de US$ 25 para publicar o Sobra na Play Store.</li>
+      <li>Tempo para melhorar o app e responder a quem usa.</li>
+      <li>Mais pessoas conseguindo organizar o dinheiro do mês.</li>
+    </ul>
+  </section>
+
+  <section class="thanks">
+    <p><strong>Obrigado por acreditar no Sobra.</strong></p>
+    <p>Se não puder doar agora, ajuda muito usar o app e mandar o link para quem precisa.</p>
+    <a class="btn ghost" href="https://brevieira2011-create.github.io/sobra/">Abrir o Sobra</a>
+  </section>
+
+  <footer>Sobra, controle de gastos simples para o dia a dia.</footer>
+</main>
+<script>
+(function () {
+  'use strict';
+  var keyEl = document.getElementById('pixkey');
+  var status = document.getElementById('status');
+  var btn = document.getElementById('copy');
+
+  function selectKey() {
+    try {
+      var r = document.createRange();
+      r.selectNodeContents(keyEl);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    } catch (e) { /* sem seleção */ }
+  }
+  function legacyCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function done(ok) {
+    if (ok) {
+      status.textContent = 'Chave copiada. Agora cole no app do seu banco.';
+      btn.textContent = 'Chave copiada';
+    } else {
+      selectKey();
+      status.textContent = 'Não consegui copiar. A chave está selecionada, segure e toque em Copiar.';
+    }
+  }
+
+  btn.addEventListener('click', function () {
+    var text = keyEl.textContent.trim();
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(legacyCopy(text)); });
+    } else {
+      done(legacyCopy(text));
+    }
+  });
+})();
+</script>
+</body>
+</html>
